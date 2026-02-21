@@ -3,16 +3,16 @@
 import { useState, useCallback } from "react";
 
 const ENDPOINTS = [
-  { id: "home",        label: "Home",        path: "/api/home?page=1",                      desc: "Slider, latest release, popular today" },
-  { id: "search",      label: "Search",      path: "/api/search?q=naruto",                  desc: "Pencarian series" },
-  { id: "series",      label: "Series",      path: "/api/series/against-the-sky-supreme",   desc: "Detail series & episode list" },
-  { id: "watch",       label: "Watch",       path: "/api/watch/against-the-sky-supreme?episode=1", desc: "Server video & download links" },
-  { id: "schedule",    label: "Schedule",    path: "/api/schedule?day=monday",               desc: "Jadwal tayang mingguan" },
-  { id: "ongoing",     label: "Ongoing",     path: "/api/ongoing?page=1",                   desc: "Daftar series ongoing" },
-  { id: "completed",   label: "Completed",   path: "/api/completed?page=1",                 desc: "Daftar series completed" },
-  { id: "sidebar",     label: "Sidebar",     path: "/api/sidebar",                          desc: "Data sidebar" },
-  { id: "genres",      label: "Genres",      path: "/api/genres/action?page=1",             desc: "Series by genre" },
-  { id: "quickfilter", label: "Quickfilter", path: "/api/quickfilter",                      desc: "Opsi filter tersedia" },
+  { id: "home", label: "Home", path: "/api/home?page=1", desc: "Slider, latest release, popular today" },
+  { id: "search", label: "Search", path: "/api/search?q=naruto", desc: "Pencarian series" },
+  { id: "series", label: "Series", path: "/api/series/against-the-sky-supreme", desc: "Detail series & episode list" },
+  { id: "watch", label: "Watch", path: "/api/watch/against-the-sky-supreme?episode=1", desc: "Server video & download links" },
+  { id: "schedule", label: "Schedule", path: "/api/schedule?day=monday", desc: "Jadwal tayang mingguan" },
+  { id: "ongoing", label: "Ongoing", path: "/api/ongoing?page=1", desc: "Daftar series ongoing" },
+  { id: "completed", label: "Completed", path: "/api/completed?page=1", desc: "Daftar series completed" },
+  { id: "sidebar", label: "Sidebar", path: "/api/sidebar", desc: "Data sidebar" },
+  { id: "genres", label: "Genres", path: "/api/genres/action?page=1", desc: "Series by genre" },
+  { id: "quickfilter", label: "Quickfilter", path: "/api/quickfilter", desc: "Opsi filter tersedia" },
 ];
 
 type Status = "idle" | "loading" | "ok" | "error";
@@ -26,7 +26,7 @@ interface Result {
 }
 
 export default function StatusPage() {
-  const [baseUrl, setBaseUrl] = useState("https://your-domain.vercel.app");
+  const [baseUrl, setBaseUrl] = useState("https://anichin-lovat.vercel.app");
   const [inputUrl, setInputUrl] = useState("");
   const [results, setResults] = useState<Record<string, Result>>({});
   const [running, setRunning] = useState(false);
@@ -214,7 +214,7 @@ export default function StatusPage() {
               type="text"
               value={inputUrl}
               onChange={e => setInputUrl(e.target.value)}
-              placeholder="https://your-domain.vercel.app"
+              placeholder="https://anichin-lovat.vercel.app"
               onKeyDown={e => e.key === 'Enter' && !running && runAll()}
             />
             <button className="run-all-btn" onClick={runAll} disabled={running}>
@@ -270,10 +270,10 @@ export default function StatusPage() {
               <div key={ep.id} className={`ep-card ${s === 'ok' ? 'ok' : s === 'error' ? 'error' : ''}`}>
                 <div className="ep-top">
                   <div className={`ep-status-icon ${s}`}>
-                    {s === 'idle'    && <span style={{ color: 'var(--muted)' }}>—</span>}
+                    {s === 'idle' && <span style={{ color: 'var(--muted)' }}>—</span>}
                     {s === 'loading' && <span>⟳</span>}
-                    {s === 'ok'      && <span>✓</span>}
-                    {s === 'error'   && <span>✗</span>}
+                    {s === 'ok' && <span>✓</span>}
+                    {s === 'error' && <span>✗</span>}
                   </div>
                   <div className="ep-info">
                     <div className="ep-name">{ep.label}</div>
