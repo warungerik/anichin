@@ -194,13 +194,13 @@ export default function DocsPage() {
           {/* BASE URL */}
           <div className="base-url-box">
             <span className="base-url-label">Base URL</span>
-            <span className="base-url-value" id="baseUrlDisplay">https://your-domain.vercel.app</span>
+            <span className="base-url-value" id="baseUrlDisplay">https://anichin-lovat.vercel.app</span>
           </div>
 
           <div>
             <p className="url-hint">→ Set URL Vercel kamu untuk langsung coba endpoint di bawah:</p>
             <div className="set-url-row">
-              <input id="baseUrlInput" type="text" className="try-url" placeholder="https://your-domain.vercel.app" style={{ maxWidth: '400px' }} />
+              <input id="baseUrlInput" type="text" className="try-url" placeholder="https://anichin-lovat.vercel.app" style={{ maxWidth: '400px' }} />
               <button className="set-btn" onClick={() => {
                 const inputElement = document.getElementById('baseUrlInput') as HTMLInputElement;
                 const input = inputElement?.value?.trim().replace(/\/$/, '');
@@ -263,7 +263,7 @@ export default function DocsPage() {
             <EndpointCard method="GET" path="/api/home" desc="Home data" id="ep-home-card"
               description="Mengembalikan data halaman utama Anichin: slider hero, latest release, popular today, dan recommendation."
               queryParams={[{ name: 'page', type: 'integer', req: false, desc: 'Halaman (default: 1)' }]}
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/home?page=1"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/home?page=1"`}
               defaultPath="/api/home?page=1"
             />
 
@@ -273,14 +273,14 @@ export default function DocsPage() {
                 { name: 'q', type: 'string', req: true, desc: 'Keyword pencarian' },
                 { name: 'page', type: 'integer', req: false, desc: 'Halaman (default: 1)' },
               ]}
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/search?q=naruto&page=1"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/search?q=naruto&page=1"`}
               defaultPath="/api/search?q=naruto"
             />
 
             <EndpointCard method="GET" path="/api/series/:slug" desc="Detail series" id="ep-series"
               description="Mengembalikan detail lengkap sebuah series: info, genre, studio, daftar episode, dan download batch."
               pathParams={[{ name: 'slug', type: 'string', req: true, desc: 'Slug series dari URL Anichin. Contoh: against-the-sky-supreme' }]}
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/series/against-the-sky-supreme"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/series/against-the-sky-supreme"`}
               defaultPath="/api/series/against-the-sky-supreme"
             />
 
@@ -288,45 +288,45 @@ export default function DocsPage() {
               description="Mengembalikan server video, link embed, dan link download untuk suatu episode."
               pathParams={[{ name: 'slug', type: 'string', req: true, desc: 'Slug series' }]}
               queryParams={[{ name: 'episode', type: 'integer', req: false, desc: 'Nomor episode (default: 1)' }]}
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/watch/against-the-sky-supreme?episode=1"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/watch/against-the-sky-supreme?episode=1"`}
               defaultPath="/api/watch/against-the-sky-supreme?episode=1"
             />
 
             <EndpointCard method="GET" path="/api/schedule" desc="Jadwal tayang" id="ep-schedule"
               description="Jadwal tayang mingguan. Bisa filter per hari."
               queryParams={[{ name: 'day', type: 'string', req: false, desc: 'monday | tuesday | wednesday | thursday | friday | saturday | sunday' }]}
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/schedule?day=monday"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/schedule?day=monday"`}
               defaultPath="/api/schedule?day=monday"
             />
 
             <EndpointCard method="GET" path="/api/ongoing" desc="Series ongoing" id="ep-ongoing"
               queryParams={[{ name: 'page', type: 'integer', req: false, desc: 'Halaman (default: 1)' }]}
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/ongoing?page=1"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/ongoing?page=1"`}
               defaultPath="/api/ongoing?page=1"
             />
 
             <EndpointCard method="GET" path="/api/completed" desc="Series completed" id="ep-completed"
               queryParams={[{ name: 'page', type: 'integer', req: false, desc: 'Halaman (default: 1)' }]}
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/completed?page=1"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/completed?page=1"`}
               defaultPath="/api/completed?page=1"
             />
 
             <EndpointCard method="GET" path="/api/sidebar" desc="Sidebar data" id="ep-sidebar"
               description="Data sidebar: quickfilter, popular series, ongoing series, dll."
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/sidebar"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/sidebar"`}
               defaultPath="/api/sidebar"
             />
 
             <EndpointCard method="GET" path="/api/genres/:slug" desc="Series by genre" id="ep-genres"
               pathParams={[{ name: 'slug', type: 'string', req: true, desc: 'Slug genre. Contoh: action, romance, fantasy' }]}
               queryParams={[{ name: 'page', type: 'integer', req: false, desc: 'Halaman (default: 1)' }]}
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/genres/action?page=1"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/genres/action?page=1"`}
               defaultPath="/api/genres/action?page=1"
             />
 
             <EndpointCard method="GET" path="/api/quickfilter" desc="Opsi filter tersedia" id="ep-quickfilter"
               description="Mengembalikan semua opsi filter yang tersedia (genre, studio, season, status, dll)."
-              curlExample={`curl -X GET "https://your-domain.vercel.app/api/quickfilter"`}
+              curlExample={`curl -X GET "https://anichin-lovat.vercel.app/api/quickfilter"`}
               defaultPath="/api/quickfilter"
             />
           </div>
